@@ -1,3 +1,4 @@
+import Notiflix from 'notiflix';
 const createBtn = document.querySelector('button[type="submit"]');
 const amountInput = document.querySelector('input[name="amount"]');
 const delayInput = document.querySelector('input[name="delay"]');
@@ -25,10 +26,10 @@ function onSubmit(evt) {
 
     createPromise(position, delay)
       .then(({ position, delay }) => {
-        console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
+        Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
       })
       .catch(({ position, delay }) => {
-        console.log(`❌ Rejected promise ${position} in ${delay}ms`);
+        Notiflix.Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
       });
   };
 }
