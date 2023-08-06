@@ -55,6 +55,7 @@ function addLeadingZero(value) {
 startBtn.addEventListener('click', timer);
 
 function timer(evt) {
+  startBtn.disabled = true;
     const pickerDate = new Date(datetimePicker.value);
     const currentDate = new Date();
     let timeRemaining = pickerDate - currentDate;
@@ -66,7 +67,8 @@ function timer(evt) {
         timeRemaining -= 1000;
         console.log(timeRemaining)
         if (timeRemaining < 0) {
-            clearInterval(intervalId)
+          clearInterval(intervalId)
+          startBtn.disabled = false;
         }
     }, 1000);
 }
